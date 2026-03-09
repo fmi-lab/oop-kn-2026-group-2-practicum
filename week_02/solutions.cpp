@@ -18,7 +18,8 @@ class Student {
 		strcpy(this->name, name);
 		this->number = number;
 	}
-
+	
+	/// среден успех за даден семестър
 	float GetTermAverage(int semester) {
 		if (semester < 0 || semester >= 8) {
 			std::cerr << "Invalid semester." << std::endl;
@@ -30,6 +31,8 @@ class Student {
 		}
 		return gradesCount[semester] > 0 ? sum / gradesCount[semester] : 0.0f;
 	}
+
+	/// среден успех за всички семестри
 	float GetAverage() {
 		float		 sum		 = 0.0f;
 		unsigned int totalGrades = 0;
@@ -41,7 +44,8 @@ class Student {
 		}
 		return totalGrades > 0 ? sum / totalGrades : 0.0f;
 	}
-
+	
+	/// добавя оценка за даден семестър
 	void AddGrade(float grade, int semester) {
 		if (semester < 0 || semester >= 8) {
 			std::cerr << "Invalid semester." << std::endl;
@@ -60,6 +64,9 @@ class Student {
 	const char *GetName() const { return name; }
 };
 
+// ще счетем, че както се иска в задачата, студентите, които са семестриално завършили имат 
+// факултетни номера от тип char, а тези, които са редовни - от тип int
+
 using SemestriallyGradedStudent = Student<char>;
 using RegularStudent			= Student<int>;
 
@@ -72,12 +79,14 @@ class University {
 	University(const char *name) : studentCount(0) { strcpy(this->name, name); }
 
 	University(const char *name, RegularStudent *students, unsigned int count) : studentCount(count) {
+		// считаме, че дължината на името е подходяща.
 		strcpy(this->name, name);
 		for (unsigned int i = 0; i < count && i < 100; i++) {
 			this->students[i] = students[i];
 		}
 	}
 
+	/// среден успех за даден семестър на всички студенти
 	float GetTermAverage(int semester) {
 		float sum = 0.0f;
 		for (unsigned int i = 0; i < studentCount; i++) {
@@ -85,7 +94,8 @@ class University {
 		}
 		return studentCount > 0 ? sum / studentCount : 0.0f;
 	}
-
+	
+	/// среден успех за всички семестри на всички студенти
 	float GetAverage() {
 		float sum = 0.0f;
 		for (unsigned int i = 0; i < studentCount; i++) {

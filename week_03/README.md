@@ -74,7 +74,7 @@ int main() {
     str1 = str1.cat(str2);
     std::cout << str1.c_str() << std::endl; // HelloWorld
 
-    std::cout << str1.cmp(str2) << std::endl; // >0
+    std::cout << str1.cmp(str2) << std::endl; // <0
 
     return 0;
 }
