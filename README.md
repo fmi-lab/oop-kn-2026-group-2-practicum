@@ -5,3 +5,5 @@
 ## [1️⃣](week_01/) Преговор, template, function pointer\
 ## [2️⃣](week_02/) Класове, методи
 ## [3️⃣](week_03/) Жизнен цикъл на обектите, static, const
+## [4️⃣](week_04/) Enum class, union, lamba, map
+## [5️⃣](week_05/) Списъци, оператори
