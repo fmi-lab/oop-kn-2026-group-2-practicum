@@ -1,7 +1,9 @@
 # оператори, списъци и списъци с оператори
 
 ## 0) Пример
-![image](https://i.redd.it/y4fkolam7tff1.jpeg)
+<p align="center">
+<img src="https://i.redd.it/y4fkolam7tff1.jpeg" alt="meme" width="40%" style="center"/>
+</p>
 ```cpp
 class Elephant {};
 class Penguin{};
