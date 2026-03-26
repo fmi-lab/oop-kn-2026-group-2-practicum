@@ -7,3 +7,4 @@
 ## [3️⃣](week_03/) Жизнен цикъл на обектите, static, const
 ## [4️⃣](week_04/) Enum class, union, lamba, map
 ## [5️⃣](week_05/) Списъци, оператори
+## [6️⃣](week_06/) Сериализация, vector
