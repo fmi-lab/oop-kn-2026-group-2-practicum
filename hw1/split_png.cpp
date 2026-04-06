@@ -7,6 +7,7 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
+#include <algorithm>
 #include <sys/stat.h>	  // mkdir
 
 // RAII wrapper around a PNG file read
@@ -242,19 +243,26 @@ int main(int argc, char *argv[]) {
 			return 1;
 		}
 
+		std::vector<std::pair<int, std::pair<int, int>>> sorted_tiles;
 		for (int row = 0; row < 8; ++row) {
 			for (int col = 0; col < 8; ++col) {
 				auto remapped_id = reindex[row * 8 + col];
 				if (remapped_id.first == -1 || remapped_id.second == -1) { continue; }
-
-				extract_tile(img, N, cell_size, tile_size, row, col, tile_buf);
-				write_tile(out, tile_buf, output_arg);
+				int tile_index = remapped_id.first * 12 + remapped_id.second;
+				sorted_tiles.push_back({tile_index, {row, col}});
 			}
 		}
 
+		std::sort(sorted_tiles.begin(), sorted_tiles.end());
+
+		for (const auto& item : sorted_tiles) {
+			extract_tile(img, N, cell_size, tile_size, item.second.first, item.second.second, tile_buf);
+			write_tile(out, tile_buf, output_arg);
+		}
+
 		fclose(out);
-		size_t total = (size_t)64 * tile_size * tile_size * 3;
-		printf("Wrote 64 tiles (%dx%d px each) → %zu bytes → %s\n", tile_size, tile_size, total, output_arg);
+		size_t total = sorted_tiles.size() * tile_size * tile_size * 3;
+		printf("Wrote %zu tiles (%dx%d px each) → %zu bytes → %s\n", sorted_tiles.size(), tile_size, tile_size, total, output_arg);
 	}
 
 	// -----------------------------------------------------------------------
@@ -294,7 +302,7 @@ int main(int argc, char *argv[]) {
 			}
 		}
 
-		printf("Wrote 64 PNG files (%dx%d px each) → %s/\n", tile_size, tile_size, output_arg);
+		printf("Wrote 48 PNG files (%dx%d px each) → %s/\n", tile_size, tile_size, output_arg);
 	}
 
 	return 0;
