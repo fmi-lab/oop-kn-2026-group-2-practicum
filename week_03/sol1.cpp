@@ -1,6 +1,7 @@
 #include <iostream>
 
-class Agent {
+class Agent
+{
 	static std::size_t count;
 
    public:
@@ -13,7 +14,8 @@ class Agent {
 
 std::size_t Agent::count = 0;
 
-int main() {
+int main()
+{
 	std::cout << Agent::getCount() << std::endl;	 // 0
 
 	Agent  smith;

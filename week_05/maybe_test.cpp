@@ -2,44 +2,42 @@
 #include <iostream>
 #include "someclass.hpp"
 #include "maybe.hpp"
-//#include "maybe_full.hpp"
+// #include "maybe_full.hpp"
 
-int main() {
-
-	//Maybe<SomeClass> maybeValue(42);
-	//if (maybeValue.hasValue()) {
+int main()
+{
+	// Maybe<SomeClass> maybeValue(42);
+	// if (maybeValue.hasValue()) {
 	//	std::cout << "Value: " << maybeValue.getValue().getValue() << std::endl;
-	//} else {
+	// } else {
 	//	std::cout << "No value present" << std::endl;
-	//}
+	// }
 
-	//Maybe<SomeClass> emptyValue;
-	//if (emptyValue.hasValue()) {
+	// Maybe<SomeClass> emptyValue;
+	// if (emptyValue.hasValue()) {
 	//	std::cout << "Value: " << emptyValue.getValue().getValue() << std::endl;
-	//} else {
+	// } else {
 	//	std::cout << "No value present" << std::endl;
-	//}
+	// }
 
-	//Maybe<std::string> maybeString("Hello, Maybe!");
-	//maybeString = Maybe<std::string>();
+	// Maybe<std::string> maybeString("Hello, Maybe!");
+	// maybeString = Maybe<std::string>();
 
-	//print("---------------------------");
+	// print("---------------------------");
 
-	//maybeValue = Maybe<SomeClass>(100);
+	// maybeValue = Maybe<SomeClass>(100);
 
-	//print("---------------------------");
+	// print("---------------------------");
 	//
-	//print("---------------------------");
-	//Maybe<SomeClass> copyValue{ 55 };
-	//print("---------------------------");
-	//Maybe<SomeClass> assignedValue{ copyValue };
+	// print("---------------------------");
+	// Maybe<SomeClass> copyValue{ 55 };
+	// print("---------------------------");
+	// Maybe<SomeClass> assignedValue{ copyValue };
 
+	// print("---------------------------");
+	// assignedValue = std::move(copyValue);
 
-	//print("---------------------------");
-	//assignedValue = std::move(copyValue);
-
-	//print("---------------------------");
-
+	// print("---------------------------");
 
 	Maybe<SomeClass> empty;
 	Maybe<SomeClass> value(123);
@@ -48,7 +46,6 @@ int main() {
 	print("---------------------------");
 	Maybe<SomeClass> copyConstructed(empty);
 	print("---------------------------");
-
 
 	return 0;
 }

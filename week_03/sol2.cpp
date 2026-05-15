@@ -1,6 +1,7 @@
 #include <iostream>
 
-class Dipper {
+class Dipper
+{
 	int		   number;
 	static int counter;
 
@@ -16,7 +17,8 @@ class Dipper {
 
 int Dipper::counter = 0;
 
-int main() {
+int main()
+{
 	Dipper dipper1, dipper2;
 
 	std::cout << dipper1.getNumber() << std::endl;	   // 1
